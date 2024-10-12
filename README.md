@@ -31,4 +31,41 @@ Replace MONGO_URI with your own MongoDB connection string if needed.
 5. Start the server
 npm run dev
 
+API Endpoints
+1. POST /api/loan
+Description: Calculates the EMI and generates the loan repayment schedule.
+Request Body:
+{
+  "amount": "900000",
+  "rate": "9",
+  "tenure": "2",
+  "repaymentDates": ["2024-10-10", "2024-11-23"]
+}
+Response:
+{
+  "emi": "37500.00",
+  "ledger": [
+    {
+      "date": "2024-10-10",
+      "emi": "37500.00",
+      "outstanding": "862500.00"
+    },
+    {
+      "date": "2024-11-23",
+      "emi": "37500.00",
+      "outstanding": "825000.00"
+    }
+  ]
+}
+Sample Loan Data
+Here is a sample loan data you can use for testing:
+{
+  "amount": "900000",
+  "rate": "9",
+  "tenure": "2",
+  "repaymentDates": ["2024-10-10", "2024-11-23"]
+}
+
+
+
 
